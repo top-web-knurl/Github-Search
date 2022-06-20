@@ -1,8 +1,8 @@
 import React from "react";
 
 
-export const About = () => {
+export const Profile = () => {
     return (
-        <h1>Home Page</h1>
+        <h1>Profile</h1>
     )
 }
