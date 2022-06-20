@@ -8,6 +8,7 @@ export const Navbar = () => (
     <div className="bg-dark">
         <div className="container">
             <div className="row">
+
                 <nav className="navbar navbar-dark  navbar-expand-lg">
 
                     <div className="navbar-brand">
@@ -20,6 +21,7 @@ export const Navbar = () => (
                         <li className="nav-item"><Link to="/profile" className="nav-link">Профили</Link></li>
                     </ul>
                 </nav >
+                
             </div>
         </div>
     </div>
