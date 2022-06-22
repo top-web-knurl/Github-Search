@@ -9,7 +9,7 @@ export const Card = () => (
             <h5 className="card-title text-black">
                 User name
             </h5>
-            <Link to={'/profile/' + 'userid'} className="btn btn-dark">Открыть</Link>
+            <Link to={'/profile/userid'} className="btn btn-dark">Открыть</Link>
         </div>
     </div>
 )
