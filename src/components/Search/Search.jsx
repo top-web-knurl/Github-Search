@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import { AlertContext } from "../../context/Alert/alertContext";
+import { GitHubContext } from "../../context/GitHub/gitHubContext";
 
 export const Search = () => {
     const { show } = useContext(AlertContext)
+    const giHub = useContext(GitHubContext)
     const [value, setValue] = useState('')
     // useState хук для стейта, 
     // value сам state, 
@@ -12,11 +14,12 @@ export const Search = () => {
             return
         }
         if (value.trim()) {
-            console.log('Make request with', value)
+            giHub.search(value.trim())
         } else {
             show('Введите данные пользователя')
         }
     }
+  
     return (
 
         <div className="Search">
