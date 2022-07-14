@@ -3,7 +3,7 @@ import { AlertContext } from "../../context/Alert/alertContext";
 import { GitHubContext } from "../../context/GitHub/gitHubContext";
 
 export const Search = () => {
-    const { show } = useContext(AlertContext)
+    const alert = useContext(AlertContext)
     const giHub = useContext(GitHubContext)
     const [value, setValue] = useState('')
     // useState хук для стейта, 
@@ -13,13 +13,16 @@ export const Search = () => {
         if (e.key !== 'Enter') {
             return
         }
+        giHub.clearUsers()
         if (value.trim()) {
+            alert.hide()
             giHub.search(value.trim())
         } else {
-            show('Введите данные пользователя')
+            alert.show('Введите данные пользователя')
+
         }
     }
-  
+
     return (
 
         <div className="Search">
