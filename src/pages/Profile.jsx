@@ -21,8 +21,6 @@ export const Profile = () => {
         bio, blog, login, html_url, follovers,
         publick_repos, publick_qists, following } = user
 
-    console.log(user);
-
     if (loading) {
         <Spinner />
     }
