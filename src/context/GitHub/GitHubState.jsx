@@ -6,7 +6,9 @@ import { gitHubReducer } from './gitHubReducer';
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
 const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET
-
+const withCreds = url => {
+    return `${url}client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`
+}
 export const GitHubState = ({ children }) => {
     const initialState = {
         user: {},
@@ -20,7 +22,7 @@ export const GitHubState = ({ children }) => {
         setLoading()
 
         const responce = await axios.get(
-            `https://api.github.com/search/users?q=${value}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`
+            withCreds(`https://api.github.com/search/users?q=${value}&`)
         )
         dispatch({
             type: SEARCH_USERS,
@@ -30,17 +32,23 @@ export const GitHubState = ({ children }) => {
 
     const getUser = async name => {
         setLoading()
+        const responce = await axios.get(
+            withCreds(`https://api.github.com/users/${name}?`)
+        )
         dispatch({
             type: GET_USER,
-            payload: {}
+            payload: responce.data
         })
     }
 
     const getRepos = async name => {
         setLoading()
+        const responce = await axios.get(
+            withCreds(`https://api.github.com/users/${name}/repos?per_page=10&`)
+        )
         dispatch({
             type: GET_REPOS,
-            payload: []
+            payload:  responce.data
         })
     }
 

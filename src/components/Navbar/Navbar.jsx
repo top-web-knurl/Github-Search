@@ -15,7 +15,6 @@ export const Navbar = () => (
                     <ul className="navbar-nav">
                         <li className="nav-item"><Link to="/" className="nav-link">Главная</Link></li>
                         <li className="nav-item"><Link to="/about" className="nav-link">О нас</Link></li>
-                        <li className="nav-item"><Link to="/profile" className="nav-link">Профили</Link></li>
                     </ul>
                 </nav>
             </div>
