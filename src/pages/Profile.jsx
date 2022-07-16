@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Repos } from "../components/Repos/Repos";
 import { Spinner } from "../components/Spinner/Spinner";
 import { GitHubContext } from "../context/GitHub/gitHubContext";
 
@@ -71,6 +72,9 @@ export const Profile = () => {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="col-md-12">
+                                <Repos repos={repos} />
                             </div>
                         </div>
                     </div>
